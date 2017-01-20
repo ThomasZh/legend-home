@@ -33,6 +33,11 @@ from comm import cur_file_dir
 from comm import timestamp_date
 
 
+class HomeHandler(tornado.web.RequestHandler):
+    def get(self):
+        logging.info(self.request)
+        self.render('home.html')
+
 class BootstrapmadeButterflyHandler(tornado.web.RequestHandler):
     def get(self):
         logging.info(self.request)

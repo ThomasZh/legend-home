@@ -15,7 +15,7 @@ def map():
     config = [
 
         # GET: 根据 HTTP header 收集客户端相关信息：是否手机、操作系统、浏览器等信息。
-        (r'/', getattr(ui_bootstrapmade, 'BootstrapmadeKnightHandler')),
+        (r'/', getattr(ui_bootstrapmade, 'HomeHandler')),
 
         (r'/bootstrapmade/one-page', getattr(ui_bootstrapmade, 'BootstrapmadeOnePageHandler')),
         (r'/bootstrapmade/butterfly', getattr(ui_bootstrapmade, 'BootstrapmadeButterflyHandler')),

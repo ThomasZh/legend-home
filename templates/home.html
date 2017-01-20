@@ -414,11 +414,13 @@
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="消息"></textarea>
+                <textarea class="form-control input-text text-area" name="message" id="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="消息"></textarea>
                 <div class="validation"></div>
               </div>
 
-              <div class="text-center"><button type="submit" class="input-btn">发送</button></div>
+              <div class="text-center">
+                <input onclick="SendMsg();" type="button" class="input-btn" value="发送">
+              </div>
             </form>
           </div>
         </div>
@@ -515,6 +517,26 @@
     });
   </script>
 
+  <script type="text/javascript">
+    function SendMsg() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+      $.post("http://kit.7x24hs.com/api/kits", {
+        "app": "7x24hs",
+        "name": name,
+        "email": email,
+        "message": message
+      }, function(result) {
+        alert('Send message success!');
+        //$("#success_msg").html('Send message success!');
+      });
+      alert('消息已经成功发送!');
+      $("#name").val("");
+      $("#email").val("");
+      $("#message").val("");
+    }
+  </script>
 </body>
 
 </html>
